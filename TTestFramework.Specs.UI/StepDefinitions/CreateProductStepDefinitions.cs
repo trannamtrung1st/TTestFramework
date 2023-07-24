@@ -1,48 +1,68 @@
+using FluentAssertions;
+using Microsoft.Extensions.Configuration;
+using TTestFramework.Specs.UI.Drivers;
+using TTestFramework.Specs.UI.Objects;
+
 namespace TTestFramework.Specs.UI.StepDefinitions
 {
     [Binding]
     public class CreateProductStepDefinitions
     {
+        private readonly CreateProductPageObject _createProductPageObject;
+
+        public CreateProductStepDefinitions(
+            BrowserDriver browserDriver,
+            IConfiguration configuration)
+        {
+            _createProductPageObject = new CreateProductPageObject(browserDriver.Current, configuration);
+        }
+
         [Given(@"the name is empty string")]
         public void GivenTheNameIsEmptyString()
         {
-            throw new PendingStepException();
+            _createProductPageObject.EnterName(string.Empty);
         }
 
         [Given(@"the unit price is (.*)")]
-        public void GivenTheUnitPriceIs(int p0)
+        public void GivenTheUnitPriceIs(decimal unitPrice)
         {
-            throw new PendingStepException();
+            _createProductPageObject.EnterPrice(unitPrice);
         }
 
         [When(@"user clicks on submit")]
         public void WhenUserClicksOnSubmit()
         {
-            throw new PendingStepException();
+            _createProductPageObject.ClickSubmit();
         }
 
         [Then(@"the button should be disabled")]
         public void ThenTheButtonShouldBeDisabled()
         {
-            throw new PendingStepException();
+            var enabled = _createProductPageObject.IsBtnSubmitEnabled();
+
+            enabled.Should().BeFalse();
         }
 
         [Then(@"an error message displays with content ""([^""]*)""")]
-        public void ThenAnErrorMessageDisplaysWithContent(string p0)
+        public void ThenAnErrorMessageDisplaysWithContent(string message)
         {
-            throw new PendingStepException();
+            var hasError = _createProductPageObject.FormHasErrorMessage(message);
+
+            hasError.Should().BeTrue();
         }
 
         [Given(@"the name is ""([^""]*)""")]
-        public void GivenTheNameIs(string television)
+        public void GivenTheNameIs(string name)
         {
-            throw new PendingStepException();
+            _createProductPageObject.EnterName(name);
         }
 
         [Then(@"the a success message displays with content ""([^""]*)""")]
-        public void ThenTheASuccessMessageDisplaysWithContent(string p0)
+        public void ThenTheASuccessMessageDisplaysWithContent(string message)
         {
-            throw new PendingStepException();
+            var hasMessage = _createProductPageObject.HasSuccessMessage(message);
+
+            hasMessage.Should().BeTrue();
         }
     }
 }

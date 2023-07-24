@@ -4,7 +4,7 @@
 
 <Title Level="2">Create product</Title>
 
-<Form Loading="loading" Model="model"
+<Form Id="form-create-product" Loading="loading" Model="model"
       LabelColSpan="8"
       WrapperColSpan="16"
       OnFinish="OnFinish"
@@ -12,13 +12,13 @@
       ValidateMode="@FormValidateMode.Rules"
       ValidateOnChange="true">
     <FormItem Required Rules="NameRules" Label="Name">
-        <Input @bind-Value="@context.Name" />
+         <Input Class="input-name" @bind-Value="@context.Name" />
     </FormItem>
     <FormItem Required Rules="PriceRules" Label="Price">
-        <AntDesign.InputNumber @bind-Value="@context.Price" />
+        <AntDesign.InputNumber Class="input-price" @bind-Value="@context.Price" />
     </FormItem>
     <FormItem WrapperColOffset="8" WrapperColSpan="16">
-        <Button Type="@ButtonType.Primary" HtmlType="submit">
+        <Button Class="btn-submit" Type="@ButtonType.Primary" HtmlType="submit">
             Submit
         </Button>
     </FormItem>

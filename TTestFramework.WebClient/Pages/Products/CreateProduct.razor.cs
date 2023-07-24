@@ -35,7 +35,7 @@ namespace TTestFramework.WebClient.Pages.Products
 
                 await ProductClient.CreateProduct(model);
 
-                _ = Message.Success("Created product successfully");
+                _ = Message.Success("Created product successfully", 50);
 
                 loading = false;
 
