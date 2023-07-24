@@ -1,0 +1,28 @@
+﻿@page "/products"
+@using TTestFramework.Shared.Models;
+
+<PageTitle>Product list</PageTitle>
+
+<Title Level="2">Product list</Title>
+
+<GridRow Justify="end">
+    <GridCol>
+        <Space>
+            <SpaceItem>
+                <NavLink href="/products/create">
+                    <Button Type="@ButtonType.Primary">Create</Button>
+                </NavLink>
+            </SpaceItem>
+        </Space>
+    </GridCol>
+</GridRow>
+
+<Divider />
+
+<Table TItem="ProductListModel" DataSource="list"
+       Loading="loading"
+       PaginationPosition="bottomRight"
+       OnRowClick="OnRowClick">
+    <Column TData="string" DataIndex="Name" Title="Name" />
+    <Column TData="decimal" DataIndex="Price" Title="Price" />
+</Table>
