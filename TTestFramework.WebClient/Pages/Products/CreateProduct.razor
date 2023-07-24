@@ -1,37 +1,27 @@
 ﻿@page "/products/create"
+@using TTestFramework.Shared.Models;
 
 <PageTitle>Create product</PageTitle>
 
 <Title Level="2">Create product</Title>
 
-<Form Id="form-create-product" Loading="loading" Model="model"
+<Form @ref="@form" Id="form-create-product" Loading="loading" Model="model"
       LabelColSpan="8"
       WrapperColSpan="16"
       OnFinish="OnFinish"
       OnFinishFailed="OnFinishFailed"
       ValidateMode="@FormValidateMode.Rules"
       ValidateOnChange="true">
-    <FormItem Required Rules="NameRules" Label="Name">
-         <Input Class="input-name" @bind-Value="@context.Name" />
+    <FormItem Required Rules="nameRules" Label="Name">
+         <Input InputElementSuffixClass="input-name" @bind-Value="@context.Name" />
     </FormItem>
-    <FormItem Required Rules="PriceRules" Label="Price">
+    <FormItem Required Rules="priceRules" Label="Price">
         <AntDesign.InputNumber Class="input-price" @bind-Value="@context.Price" />
     </FormItem>
     <FormItem WrapperColOffset="8" WrapperColSpan="16">
-        <Button Class="btn-submit" Type="@ButtonType.Primary" HtmlType="submit">
+        <Button Class="btn-submit" Type="@ButtonType.Primary" HtmlType="submit"
+                Disabled="hasError">
             Submit
         </Button>
     </FormItem>
 </Form>
-
-@code {
-    FormValidationRule[] NameRules = new[]
-    {
-        new FormValidationRule() { Required = true }
-    };
-
-    FormValidationRule[] PriceRules = new[]
-    {
-        new FormValidationRule() { Required = true, Min = 0, Type = FormFieldType.Number }
-    };
-}

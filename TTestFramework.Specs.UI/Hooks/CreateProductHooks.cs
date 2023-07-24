@@ -7,12 +7,22 @@ namespace TTestFramework.Specs.UI.Hooks
     [Binding]
     public class CreateProductHooks
     {
-        [BeforeScenario("CreateProduct")]
+        public const string Tag = "CreateProduct";
+
+        [BeforeScenario(Tag)]
         public static void BeforeScenario(BrowserDriver browserDriver, IConfiguration configuration)
         {
             var pageObject = new CreateProductPageObject(browserDriver.Current, configuration);
 
             pageObject.EnsurePageOpenAndFresh();
+
+            pageObject.WaitForFormVisible();
+        }
+
+        [AfterFeature(Tag)]
+        public static void AfterFeature(BrowserDriver browserDriver)
+        {
+            browserDriver.Dispose();
         }
     }
 }

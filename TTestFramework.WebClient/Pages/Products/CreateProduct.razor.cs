@@ -19,6 +19,18 @@ namespace TTestFramework.WebClient.Pages.Products
 
         CreateProductModel model;
         bool loading;
+        Form<CreateProductModel> form;
+        bool hasError;
+
+        FormValidationRule[] nameRules = new[]
+        {
+            new FormValidationRule() { Required = true }
+        };
+
+        FormValidationRule[] priceRules = new[]
+        {
+            new FormValidationRule() { Required = true, Min = 0, Type = FormFieldType.Number }
+        };
 
         public CreateProduct()
         {
@@ -53,6 +65,7 @@ namespace TTestFramework.WebClient.Pages.Products
 
         void OnFinishFailed(EditContext context)
         {
+            hasError = true;
             Console.WriteLine("Invalid data");
         }
     }

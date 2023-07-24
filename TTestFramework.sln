@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TTestFramework.WebClient", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TTestFramework.Specs.UI", "TTestFramework.Specs.UI\TTestFramework.Specs.UI.csproj", "{C7D26C11-2BB8-4B06-AC16-200748A6F5C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTestFramework.Shared", "TTestFramework.Shared\TTestFramework.Shared.csproj", "{5078CBFF-9E29-4B15-845E-A725FDB4B495}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TTestFramework.Shared", "TTestFramework.Shared\TTestFramework.Shared.csproj", "{5078CBFF-9E29-4B15-845E-A725FDB4B495}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

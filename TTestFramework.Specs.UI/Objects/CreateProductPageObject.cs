@@ -21,9 +21,9 @@ namespace TTestFramework.Specs.UI.Objects
 
         private IWebElement FormElement => _webDriver.FindElement(By.Id("form-create-product"));
         private IWebElement NameInput => FormElement.FindElement(By.ClassName("input-name"));
-        private IWebElement PriceInput => FormElement.FindElement(By.ClassName("input-price"));
+        private IWebElement PriceInput => FormElement.FindElement(By.CssSelector(".input-price input"));
         private IWebElement BtnSubmit => FormElement.FindElement(By.ClassName("btn-submit"));
-        private IWebElement SuccessModal => FormElement.FindElement(By.ClassName("ant-message-success"));
+        private IWebElement SuccessModal => _webDriver.FindElement(By.ClassName("ant-message-success"));
 
         public void EnterName(string name)
         {
@@ -74,11 +74,8 @@ namespace TTestFramework.Specs.UI.Objects
 
         public IWebElement WaitForFormVisible()
         {
-            //Wait for the result to be empty
-            return WebDriverHelper.WaitUntil(
-                _webDriver,
-                () => NameInput,
-                result => result != null);
+            return WebDriverHelper.WaitUntil(_webDriver,
+                () => NameInput, (e) => e?.Displayed == true);
         }
     }
 }

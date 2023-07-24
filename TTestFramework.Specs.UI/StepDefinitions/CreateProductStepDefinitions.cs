@@ -40,7 +40,7 @@ namespace TTestFramework.Specs.UI.StepDefinitions
         {
             var enabled = _createProductPageObject.IsBtnSubmitEnabled();
 
-            enabled.Should().BeFalse();
+            enabled.Should().BeFalse("Submit button must be disabled");
         }
 
         [Then(@"an error message displays with content ""([^""]*)""")]
@@ -48,13 +48,13 @@ namespace TTestFramework.Specs.UI.StepDefinitions
         {
             var hasError = _createProductPageObject.FormHasErrorMessage(message);
 
-            hasError.Should().BeTrue();
+            hasError.Should().BeTrue($"Expected error '{message}'");
         }
 
         [Given(@"the name is ""([^""]*)""")]
         public void GivenTheNameIs(string name)
         {
-            _createProductPageObject.EnterName(name);
+            _createProductPageObject.EnterName($"{name} {DateTime.UtcNow}");
         }
 
         [Then(@"the a success message displays with content ""([^""]*)""")]
@@ -62,7 +62,7 @@ namespace TTestFramework.Specs.UI.StepDefinitions
         {
             var hasMessage = _createProductPageObject.HasSuccessMessage(message);
 
-            hasMessage.Should().BeTrue();
+            hasMessage.Should().BeTrue($"Expected success '{message}'");
         }
     }
 }

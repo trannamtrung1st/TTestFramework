@@ -21,12 +21,14 @@ namespace TTestFramework.Specs.UI.Features
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Create product")]
+    [NUnit.Framework.CategoryAttribute("CreateProduct")]
     public partial class CreateProductFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private string[] _featureTags = ((string[])(null));
+        private string[] _featureTags = new string[] {
+                "CreateProduct"};
         
 #line 1 "CreateProduct.feature"
 #line hidden
@@ -41,7 +43,8 @@ Allow user to create a product on the web application
 
 Link to a feature: [CreateProduct](TTestFramework.Specs.UI/Features/CreateProduct.feature)
 
-**Note**: your can add any MD compatible content here", ProgrammingLanguage.CSharp, ((string[])(null)));
+**Note**: your can add any MD compatible content here", ProgrammingLanguage.CSharp, new string[] {
+                        "CreateProduct"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -82,13 +85,15 @@ Link to a feature: [CreateProduct](TTestFramework.Specs.UI/Features/CreateProduc
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Create a product with empty name")]
         [NUnit.Framework.CategoryAttribute("T0001")]
+        [NUnit.Framework.CategoryAttribute("CreateProduct")]
         public virtual void CreateAProductWithEmptyName()
         {
             string[] tagsOfScenario = new string[] {
-                    "T0001"};
+                    "T0001",
+                    "CreateProduct"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a product with empty name", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 12
+#line 14
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -108,20 +113,20 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 13
+#line 15
  testRunner.Given("the name is empty string", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 14
+#line 16
  testRunner.And("the unit price is 1000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 15
+#line 17
  testRunner.When("user clicks on submit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 16
+#line 18
  testRunner.Then("the button should be disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 17
- testRunner.And("an error message displays with content \"Product name is required\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 19
+ testRunner.And("an error message displays with content \"\'Name\' is required\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -130,13 +135,15 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Create a product with correct information")]
         [NUnit.Framework.CategoryAttribute("T0002")]
+        [NUnit.Framework.CategoryAttribute("CreateProduct")]
         public virtual void CreateAProductWithCorrectInformation()
         {
             string[] tagsOfScenario = new string[] {
-                    "T0002"};
+                    "T0002",
+                    "CreateProduct"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a product with correct information", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 21
+#line 24
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -156,16 +163,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 22
+#line 25
  testRunner.Given("the name is \"Television\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 23
+#line 26
  testRunner.And("the unit price is 1000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 24
+#line 27
  testRunner.When("user clicks on submit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 25
+#line 28
  testRunner.Then("the a success message displays with content \"Created product successfully\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
